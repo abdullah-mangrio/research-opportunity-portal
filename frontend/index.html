@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research Opportunity Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>University Research Opportunity Portal</h1>
+    <button id="newBtn" class="btn primary">+ New Opportunity</button>
+  </header>
+
+  <main>
+    <div id="msg" class="msg hidden" role="alert"></div>
+
+    <section id="formSection" class="card hidden">
+      <h2 id="formTitle">New Research Opportunity</h2>
+      <form id="oppForm" novalidate>
+        <div class="grid">
+          <label>Research Title *
+            <input type="text" name="title" maxlength="255">
+            <small class="err" data-for="title"></small>
+          </label>
+          <label>Research Area *
+            <input type="text" name="research_area" maxlength="255">
+            <small class="err" data-for="research_area"></small>
+          </label>
+          <label>Faculty Member Name *
+            <input type="text" name="faculty_name" maxlength="255">
+            <small class="err" data-for="faculty_name"></small>
+          </label>
+          <label>Department *
+            <input type="text" name="department" maxlength="255">
+            <small class="err" data-for="department"></small>
+          </label>
+          <label>Required Skills * <em>(comma separated)</em>
+            <input type="text" name="required_skills" maxlength="1000">
+            <small class="err" data-for="required_skills"></small>
+          </label>
+          <label>Available Positions *
+            <input type="number" name="available_positions" min="1" max="1000">
+            <small class="err" data-for="available_positions"></small>
+          </label>
+          <label>Application Deadline *
+            <input type="date" name="application_deadline">
+            <small class="err" data-for="application_deadline"></small>
+          </label>
+          <label>Status
+            <select name="status">
+              <option value="Open">Open</option>
+              <option value="Closed">Closed</option>
+            </select>
+          </label>
+        </div>
+        <label>Research Description *
+          <textarea name="description" rows="4" maxlength="5000"></textarea>
+          <small class="err" data-for="description"></small>
+        </label>
+        <div class="actions">
+          <button type="submit" id="saveBtn" class="btn primary">Save</button>
+          <button type="button" id="cancelBtn" class="btn">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="detailSection" class="card hidden">
+      <div class="row-between">
+        <h2>Opportunity Details</h2>
+        <button id="closeDetail" class="btn small">Hide</button>
+      </div>
+      <div id="detailBody"></div>
+    </section>
+
+    <h2>All Opportunities</h2>
+    <div id="list" class="list"></div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
